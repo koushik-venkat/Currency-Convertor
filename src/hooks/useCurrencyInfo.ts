@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-const useCurrencyInfo = (baseCurrency) => {
+const useCurrencyInfo = (baseCurrency: string) => {
   const [data, setData] = useState({});
   const URL = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${baseCurrency}.json`;
 

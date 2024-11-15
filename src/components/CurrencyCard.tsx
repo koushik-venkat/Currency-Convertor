@@ -1,6 +1,20 @@
-import React from "react";
+import { Dispatch, SetStateAction } from "react";
 
-const CurrencyCard = ({
+interface DataProps{
+    [key: string]: number;
+  }
+  
+
+interface CurrencyProps{
+    data: DataProps
+    label: 'from' | 'to',
+    setCurrency: Dispatch<SetStateAction<string>>,
+    currency: string,
+    setAmount: Dispatch<SetStateAction<number>>,
+    amount: number,
+}
+
+const CurrencyCard: React.FC<CurrencyProps> = ({
   data,
   label,
   setCurrency,
@@ -8,8 +22,8 @@ const CurrencyCard = ({
   setAmount,
   amount,
 }) => {
-  const handleAmount = (e) => {
-    const value = e.target.value;
+  const handleAmount = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
     setAmount(value);
   };
 
